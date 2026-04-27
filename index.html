@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>PG导航网</title>
+    <meta name="keywords" content="PG导航网">
+    <meta name="description" content="PG导航 - 您的掌上娱乐天地">
+    <link rel="stylesheet" href="./new.css">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+    <meta name="force-rendering" content="webkit">
+    <meta name="x5-fullscreen" content="true">
+    <meta name="x5-page-mode" content="app">
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js')
+            .then(reg => {
+                console.log('SW registered:', reg.scope);
+                // 可选：如果有更新，可以在这里提示用户，而不是强制刷新
+                if (reg.waiting) {
+                    console.log('New version ready, waiting for activation.');
+                }
+            })
+            .catch(err => console.error('SW registration failed:', err));
+        
+        // 2. 监听控制器变更（新版本激活）
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+            if (refreshing) return;
+            refreshing = true;
+            // 新版本激活后，刷新页面以应用
+            window.location.reload();
+        });
+    }
+</script>
+<script defer src="./list.js"></script>
+<script defer src="./inpro.js"></script>
+</head>
+<body>
+ <div class="sjb">
+	<h1 id="1" onclick="showIosGuide()">导航网</h1><h3 id="3" onclick="window.open('https://cn.bing.com/sportsdetails?q=%E4%B8%96%E7%95%8C%E6%9D%AF%E8%B5%9B%E7%A8%8B&sport=Soccer&scenario=League&TimezoneId=China%20Standard%20Time&IANATimezoneId=Asia/Shanghai&ISOTimezoneKey=CST&league=Soccer_InternationalWorldCup&intent=Schedule&seasonyear=2026&segment=sports&isl2=true&fromhere=1065280020&form=ANNTH1&')"></h3></div>
+  <ul id="xapes" class="app-desktop">
+     <li id="2" class="app-title"></li>
+	</ul><br>
+	
+  <ul id="ges" class="app-desktop">
+     <li id="52" class="app-title"></li>
+	</ul><br>
+
+  <ul id="bth" class="app-desktop">
+     <li id="54" class="app-title"></li>
+	</ul><br>
+
+  <ul id="toos" class="app-desktop">
+     <li id="55" class="app-title"></li>
+	</ul><br>
+  <ul class="app-desktop">
+     <li class="app-title">帮助</li>
+		<li class="app-title"><h3 id="56"></h3><li>
+		</ul><br><br>
+<div id="ios-guide-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 25px; border-radius: 12px; text-align: center; max-width: 80%; box-shadow: 0 4px 15px rgba(0,0,0,0.2);">
+        <h3 style="margin-top: 0; color: #333;">iOS 安装指南</h3>
+        <p style="color: #666; font-size: 14px; line-height: 1.6;">
+            1. 点击浏览器底部的 <b>分享按钮</b><br>
+            2. 选择 <b>“添加到主屏幕”</b><br>
+			1. ios26及以上版本请先点击<b>(...)</b><br>
+			2. 点击<b>共享</b>，选择<b>查看更多</b><br>
+			3. 选择 <b>“添加到主屏幕”</b><br>
+        </p>
+        <div style="font-size: 50px; margin: 15px 0;">📤</div>
+        <button onclick="closeIosGuide()" style="background: #333; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">关闭</button>
+    </div>
+</div>
+
+<script>
+    // 显示弹窗
+    function showIosGuide() {
+        document.getElementById('ios-guide-modal').style.display = 'flex';
+    }
+
+    // 关闭弹窗
+    function closeIosGuide() {
+        document.getElementById('ios-guide-modal').style.display = 'none';
+    }
+</script>
+</body></html>
